@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Joining_Not_in_Future</fullName>
+    <active>true</active>
+    <errorConditionFormula>Date_of_Joining__c &gt; TODAY()</errorConditionFormula>
+    <errorDisplayField>Date_of_Joining__c</errorDisplayField>
+    <errorMessage>Date of Joining cannot be in the future</errorMessage>
+</ValidationRule>

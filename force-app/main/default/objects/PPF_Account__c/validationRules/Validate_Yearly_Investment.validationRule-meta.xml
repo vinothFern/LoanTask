@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Yearly_Investment</fullName>
+    <active>true</active>
+    <errorConditionFormula>Yearly_Investment__c &gt; 150000</errorConditionFormula>
+    <errorDisplayField>Yearly_Investment__c</errorDisplayField>
+    <errorMessage>Yearly Investment should not be above 150,000.</errorMessage>
+</ValidationRule>

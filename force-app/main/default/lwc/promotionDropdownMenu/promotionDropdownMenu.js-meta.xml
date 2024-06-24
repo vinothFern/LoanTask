@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="promotionDropdownMenu">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <!-- Define the current position attribute -->
+    <!-- Example: Default value is 'Associate Developer' -->
+    <!-- Replace with the actual current position when using the component -->
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="currentPosition" type="String" default="Trainee" 
+                label="Current Position" description="The current position for determining available promotions." />
+            <property name="selectedPromotion" type="String" default=" " 
+                label="selected Promotion" description="The new position for determining available promotions." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intrest_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>Interest_Rate__c &gt; 1.00</errorConditionFormula>
+    <errorDisplayField>Interest_Rate__c</errorDisplayField>
+    <errorMessage>interest rate greater then 100</errorMessage>
+</ValidationRule>

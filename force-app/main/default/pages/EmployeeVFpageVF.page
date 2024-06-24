@@ -1,0 +1,27 @@
+<apex:page standardController="Employee__c" extensions="EmployeeVFpage" renderAs="pdf" showHeader="false" sidebar="false">
+    <h2>Employment Report</h2>
+    <table border="1" cellpadding="4" cellspacing="0" width="100%">
+        <thead>
+            <tr style="background-color: #4CAF50; color: white;">
+                <th>Name</th>
+                <th>Position</th>
+                <th>Experience</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Date of Joining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat value="{!employee}" var="emp">
+                <tr>
+                    <td>{!emp.Name}</td>
+                    <td>{!emp.Position__c}</td>
+                    <td>{!emp.Experience__c}</td>
+                    <td>{!emp.Department__r.Name}</td>
+                    <td>{!emp.Salary__c}</td>
+                    <td>{!emp.Date_of_Joining__c}</td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+    </table>
+</apex:page>
