@@ -1,9 +1,15 @@
 public class DeletedEmployeeClass {
-    public static void deleteEmp(DeletedRecords__c DelRec,Id depId){
+    public static void deleteEmp(List<DeletedRecords__c> Del,List<Id> ids){
         
-        	List<Department__c> depList = [select id,Name from Department__c where id = :depId];
-            DelRec.Department__c = 	depList[0].Name;
-            insert DelRec;
+        	List<Department__c> depList = [select id,Name from Department__c where id in :ids];
+            for(Department__c dep: depList){
+                for(DeletedRecords__c delRec: Del){
+                    if(delRec.Department__c.equals(dep.id.toString())){
+                        delRec.Department__c = dep.Name;
+                    }
+                }
+            }
+            insert Del;
     }
     
     public static void insertEmp(List<Id> ids){
