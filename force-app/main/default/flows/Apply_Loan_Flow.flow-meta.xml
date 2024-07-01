@@ -76,6 +76,9 @@
         <label>Apply Loan flow</label>
         <locationX>859</locationX>
         <locationY>433</locationY>
+        <connector>
+            <targetReference>get_application_record</targetReference>
+        </connector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -195,6 +198,22 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>display_final</name>
+        <label>display final</label>
+        <locationX>1270</locationX>
+        <locationY>384</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>display</name>
+            <fieldText>&lt;p&gt;Your Application is created {!get_application_record.returnValue.Name} ({!get_application_record.returnValue.Id}).&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
         <locationX>650</locationX>
         <locationY>48</locationY>
@@ -203,6 +222,23 @@
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>get_application_record</name>
+        <label>get application record</label>
+        <locationX>1052</locationX>
+        <locationY>339</locationY>
+        <connector>
+            <targetReference>display_final</targetReference>
+        </connector>
+        <flowName>Apply_Loan_Flow_Autolunch</flowName>
+        <inputAssignments>
+            <name>accountId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
     <variables>
         <name>account_active</name>
         <dataType>Boolean</dataType>
